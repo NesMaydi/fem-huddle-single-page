@@ -121,10 +121,11 @@ main {
             height: 40px;
             width: 200px;
             font-family: $text-font;
-            &:hover{
+
+            &:hover {
                 background: #E880E8;
-box-shadow: 2px 4px 9px 3px rgba(0, 0, 0, 0.258633);
-color: #FFFFFF;
+                box-shadow: 2px 4px 9px 3px rgba(0, 0, 0, 0.258633);
+                color: #FFFFFF;
             }
         }
     }
@@ -154,17 +155,20 @@ color: #FFFFFF;
         line-height: 1.6em;
         padding: 7px;
         font-size: smaller;
-        &:nth(0){
+
+        &:last-child {
             margin-right: 0;
         }
-        &:hover{
+
+        &:hover {
             border-color: #FF52C1;
-            color: #FF52C1;;
+            color: #FF52C1;
+            ;
         }
     }
 }
 
-.attribution{
+.attribution {
     font-family: $text-font;
     font-size: 12px;
     width: 100%;
@@ -188,9 +192,9 @@ color: #FFFFFF;
 
     header {
         #img-logo {
-            height: 32px;
             width: 200px;
-            background-image: url(images/logo.svg);
+            height: 100px;
+            background-size: contain;
             margin: 64px auto 0 80px;
         }
     }
@@ -246,7 +250,16 @@ color: #FFFFFF;
 
 
     #media-links {
+        height: 40px;
+        width: 152px;
         margin: 0 auto auto 1208px;
+
+        a {
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+
+        }
     }
 
 }
