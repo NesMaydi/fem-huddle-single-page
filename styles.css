@@ -13,7 +13,7 @@ body {
   background-color: #674baf;
   background-position: top;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 header {
@@ -34,34 +34,38 @@ header #img-logo {
 }
 
 main {
-  display: -ms-grid;
-  display: grid;
-  width: 304px;
-  height: 541px;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  grid-row: 209px 272px;
-  gap: 60px;
-      grid-template-areas: "a" "b";
-  margin: 0 auto 64px auto;
-}
-
-main #mockups-part {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: a;
-  margin-left: 4.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 209px;
-  width: 296px;
-  background-image: url(images/illustration-mockups.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin: 0 auto 64px auto;
+  gap: 3.75rem;
 }
 
-main #info-part {
+main .mockups-part {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .mockups-part img {
+  width: 296px;
+  height: 209px;
+}
+
+main .info-part {
   height: 272px;
   width: 304px;
   display: -webkit-box;
@@ -77,12 +81,9 @@ main #info-part {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: b;
 }
 
-main #info-part h1 {
+main .info-part h1 {
   font-weight: 600;
   font-size: 24px;
   line-height: 36px;
@@ -92,7 +93,7 @@ main #info-part h1 {
   text-align: center;
 }
 
-main #info-part p {
+main .info-part p {
   height: 120px;
   width: 304px;
   font-family: "Poppins", sans-serif;
@@ -103,7 +104,7 @@ main #info-part p {
   margin-bottom: 24px;
 }
 
-main #info-part a {
+main .info-part a {
   padding-top: 11.29px;
   text-decoration: none;
   background: #FFFFFF;
@@ -119,14 +120,14 @@ main #info-part a {
   font-family: "Poppins", sans-serif;
 }
 
-main #info-part a:hover {
+main .info-part a:hover {
   background: #E880E8;
   -webkit-box-shadow: 2px 4px 9px 3px rgba(0, 0, 0, 0.258633);
           box-shadow: 2px 4px 9px 3px rgba(0, 0, 0, 0.258633);
   color: #FFFFFF;
 }
 
-#media-links {
+.media-links {
   height: 28px;
   width: 104px;
   margin: 0 auto;
@@ -141,7 +142,7 @@ main #info-part a:hover {
           justify-content: center;
 }
 
-#media-links a {
+.media-links a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -164,11 +165,11 @@ main #info-part a:hover {
   font-size: smaller;
 }
 
-#media-links a:last-child {
+.media-links a:last-child {
   margin-right: 0;
 }
 
-#media-links a:hover {
+.media-links a:hover {
   border-color: #FF52C1;
   color: #FF52C1;
 }
@@ -190,81 +191,88 @@ main #info-part a:hover {
   margin-top: 40px;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 768px) {
   body {
     background-image: url(images/bg-desktop.svg);
-    background-position: top;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-clip: border-box;
+    background-position-y: top;
+    width: 100%;
   }
-  header #img-logo {
-    width: 200px;
-    height: 100px;
-    background-size: contain;
-    margin: 64px auto 0 80px;
+  main .mockups-part {
+    width: 606.21px;
+    height: 428.03px;
   }
+  main .mockups-part img {
+    width: 100%;
+    height: 100%;
+  }
+  main .info-part {
+    width: 622.59px;
+    height: auto;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  main .info-part h1 {
+    font-size: 35px;
+    line-height: 55px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   main {
-    width: 1275px;
-    height: 493px;
-    -ms-grid-columns: 696px 520px;
-        grid-template-columns: 696px 520px;
-    -webkit-column-gap: 59px;
-            column-gap: 59px;
-    -ms-grid-rows: 493px;
-        grid-template-rows: 493px;
-        grid-template-areas: "c d";
-    margin: 100px auto 27px auto;
+    margin: 0 85px 64px 80px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
-  main #mockups-part {
-    height: 493px;
-    width: 696px;
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: c;
+  main .mockups-part {
+    max-width: 696px;
+    height: auto;
+    width: 80%;
   }
-  main #info-part {
-    margin-top: 50px;
-    width: 520px;
-    height: 305px;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: d;
+  main .info-part {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    gap: 24px;
+    height: auto;
+    width: 520px;
   }
-  main #info-part h1 {
+  main .info-part h1 {
+    width: 150%;
     text-align: left;
-    font-weight: 600;
-    font-size: 40px;
     line-height: 60px;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
-  main #info-part p {
-    font-weight: 400;
+  main .info-part p {
+    width: 120%;
+    text-align: left;
+    margin-bottom: 0;
     font-size: 18px;
     line-height: 27px;
-    height: 81px;
-    width: 521px;
-    text-align: justify;
   }
-  main #info-part a {
-    height: 56px;
-    width: 200px;
-    font-size: 18px;
-    line-height: 27px;
-    margin-top: 24px;
-    padding: 13px 63px 16px 64px;
-    border-radius: 28px;
+}
+
+@media screen and (min-width: 1440px) {
+  main .info-part p {
+    width: 110%;
   }
-  #media-links {
+  .media-links {
     height: 40px;
     width: 152px;
-    margin: 0 auto auto 1208px;
+    margin-right: 80px;
   }
-  #media-links a {
-    width: 40px;
-    height: 40px;
+  .media-links a {
     margin-right: 16px;
   }
 }

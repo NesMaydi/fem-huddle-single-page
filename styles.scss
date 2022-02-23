@@ -6,18 +6,7 @@ $text-font: 'Poppins',
 sans-serif;
 
 
-@mixin gridMobile {
-    display: grid;
-    width: 304px;
-    height: 541px;
-    grid-template-columns: 1fr;
-    grid-row: 209px 272px;
-    gap: 60px;
-    grid-template-areas:
-        "a"
-        "b";
 
-}
 
 @mixin gridDesktop {
     width: 1275px;
@@ -41,7 +30,7 @@ body {
     background-color: hsl(257, 40%, 49%);
     background-position: top;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 
@@ -62,28 +51,33 @@ header {
 
 
 main {
-    @include gridMobile();
-    margin: 0 auto 64px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    #mockups-part {
-        grid-area: a;
-        margin-left: 4.5px;
+    margin: 0 auto 64px auto;
+    gap: 3.75rem;
+
+    .mockups-part {
         justify-content: center;
-        height: 209px;
-        width: 296px;
-        background-image: url(images/illustration-mockups.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
+        align-items: center;
+
+
+        img {
+            width: 296px;
+            height: 209px;
+        }
     }
 
-    #info-part {
+    .info-part {
         height: 272px;
         width: 304px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        grid-area: b;
+
 
 
         h1 {
@@ -132,7 +126,7 @@ main {
 
 }
 
-#media-links {
+.media-links {
     height: 28px;
     width: 104px;
     margin: 0 auto;
@@ -179,87 +173,101 @@ main {
     margin-top: 40px;
 }
 
-
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 768px) {
 
     body {
         background-image: url(images/bg-desktop.svg);
-        background-position: top;
-        background-repeat: no-repeat;
         background-size: cover;
-    }
-
-
-    header {
-        #img-logo {
-            width: 200px;
-            height: 100px;
-            background-size: contain;
-            margin: 64px auto 0 80px;
-        }
+        background-clip:border-box;
+        background-position-y: top;
+        width: 100%;
     }
 
     main {
-        @include gridDesktop();
-        margin: 100px auto 27px auto;
+        .mockups-part {
+            width: 606.21px;
+            height: 428.03px;
 
-        #mockups-part {
-            height: 493px;
-            width: 696px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
 
-            grid-area: c;
+        .info-part {
+            width: 622.59px;
+            height: auto;
+            justify-content: flex-start;
+
+            h1 {
+                font-size: 35px;
+                line-height: 55px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+
+    main {
+        margin: 0 85px 64px 80px;
+
+        flex-direction: row;
+
+        .mockups-part {
+            max-width: 696px;
+            height: auto;
+            width: 80%;
+
 
         }
 
-        #info-part {
-            margin-top: 50px;
-            width: 520px;
-            height: 305px;
-            grid-area: d;
+        .info-part {
+            display: flex;
+            flex-direction: column;
             align-items: flex-start;
+            gap: 24px;
+            height: auto;
+            width: 520px;
 
             h1 {
+                width: 150%;
                 text-align: left;
-                font-weight: 600;
-                font-size: 40px;
                 line-height: 60px;
-                margin-bottom: 24px;
+                margin-bottom: 0;
             }
 
             p {
-                font-weight: 400;
+                width: 120%;
+                text-align: left;
+                margin-bottom: 0;
                 font-size: 18px;
                 line-height: 27px;
-                height: 81px;
-                width: 521px;
-                text-align: justify;
             }
 
-            a {
-                height: 56px;
-                width: 200px;
-                font-size: 18px;
-                line-height: 27px;
-                margin-top: 24px;
-                padding: 13px 63px 16px 64px;
-                border-radius: 28px;
-            }
-        }
-
-    }
-
-
-    #media-links {
-        height: 40px;
-        width: 152px;
-        margin: 0 auto auto 1208px;
-
-        a {
-            width: 40px;
-            height: 40px;
-            margin-right: 16px;
 
         }
     }
+}
+
+@media screen and (min-width: 1440px) {
+    
+main{
+    .info-part{
+        p{
+            width: 110%;
+        }
+    }
+}
+
+.media-links{
+    height: 40px;
+width: 152px;
+margin-right: 80px;
+a{
+    margin-right: 16px;
+}
+}
 
 }
